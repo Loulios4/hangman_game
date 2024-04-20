@@ -80,16 +80,17 @@ void get_guessed_word(const char secret[], const char letters_guessed[], char gu
 
 void get_available_letters(const char letters_guessed[], char available_letters[])
 {
-    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    char alphabet[27] = "abcdefghijklmnopqrstuvwxyz";
     int l = 0;
-    for (int i = 0; i < strlen(alphabet) - 1; i++)
+    for (int i = 0; i < strlen(alphabet); i++)
     {
         int counter = 0;
-        for (int j = 0; j < strlen(letters_guessed) - 1; j++)
+        for (int j = 0; j < strlen(letters_guessed); j++)
         {
             if (alphabet[i] == letters_guessed[j])
             {
                 counter = 1;
+                break;
             }
         }
 
