@@ -99,4 +99,6 @@ void get_available_letters(const char letters_guessed[], char available_letters[
             available_letters[l++] = alphabet[i];
         }
     }
+
+    available_letters[++l] = '\0';
 }
