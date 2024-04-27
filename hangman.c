@@ -146,25 +146,27 @@ void hangman(const char secret[])
             if (tmp[0] >= 97 && tmp[0] <= 122)
             {
                 letter = tmp[0];
-                letters_guessed[lg_index] = letter;
-                lg_index++;
             }
             else if (tmp[0] >= 65 && tmp[0] <= 90)
             {
                 letter = tmp[0] + 32;
-                letters_guessed[lg_index] = letter;
-                lg_index++;
             }
             else
             {
                 printf("Oops! '%c' is not a valid letter", tmp[0]);
             }
-            get_guessed_word(secret, letters_guessed, guessed_word);
 
-            if (!letter_in_string(letter, available_letters))
+            if (letter_in_string(letter, letters_guessed))
             {
                 counter = 1;
             }
+            else
+            {
+                letters_guessed[lg_index] = letter;
+                lg_index++;
+            }
+
+            get_guessed_word(secret, letters_guessed, guessed_word);
 
             if (counter == 1)
             {
@@ -177,7 +179,6 @@ void hangman(const char secret[])
             }
             else
             {
-
                 if (letter_in_string(letter, secret))
                 {
 
@@ -216,6 +217,10 @@ void hangman(const char secret[])
                 }
                 attempts = -2;
             }
+        }
+        else
+        {
+            attempts = 0;
         }
     }
 
