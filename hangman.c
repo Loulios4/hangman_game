@@ -100,7 +100,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
         }
     }
 
-    available_letters[++l] = '\0';
+    available_letters[l] = '\0';
 }
 
 int letter_in_string(const char letter, const char string[])
