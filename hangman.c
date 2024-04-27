@@ -179,7 +179,6 @@ void hangman(const char secret[])
                     {
                         printf("%c ", guessed_word[i]);
                     }
-                    printf("\n");
                 }
                 else
                 {
@@ -198,9 +197,9 @@ void hangman(const char secret[])
                     {
                         printf("%c ", guessed_word[i]);
                     }
-                    printf("\n");
                 }
             }
+            printf("\n");
         }
         else if (strlen(tmp) - 1 == strlen(secret))
         {
