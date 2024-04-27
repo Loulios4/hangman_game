@@ -211,8 +211,6 @@ void hangman(const char secret[])
             {
                 if (tmp[i] != secret[i])
                 {
-                    printf("Sorry, bad guess. The word was %s.\n", secret);
-                    attempts = -1;
                     break;
                 }
                 attempts = -2;
@@ -220,7 +218,8 @@ void hangman(const char secret[])
         }
         else
         {
-            attempts = 0;
+            printf("Sorry, bad guess. The word was %s.\n", secret);
+            attempts = -1;
         }
     }
 
